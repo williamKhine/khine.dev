@@ -1,0 +1,14 @@
+[
+    {
+        "item": "Projects",
+        "link": "/projects"
+    },
+    {
+        "item": "About",
+        "link": "/about"
+    },
+    {
+        "item": "Contact",
+        "link": "/contact"
+    }
+]
