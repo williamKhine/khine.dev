@@ -4,6 +4,8 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
 
+import type { Metadata } from 'next'
+
 const geistHeading = Geist({subsets:['latin'],variable:'--font-heading'});
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'})
@@ -12,6 +14,11 @@ const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
 })
+
+export const metadata: Metadata = {
+  title: 'William Khine',
+  description: 'Full stack engineer in Toronto, Canada. Passionate about building performant web applications.',
+}
 
 export default function RootLayout({
   children,
