@@ -32,9 +32,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", inter.variable, geistHeading.variable)}
+      className={cn("antialiased scroll-smooth", fontMono.variable, "font-sans", inter.variable, geistHeading.variable)}
     >
-      <body>
+      <body className="flex min-h-dvh flex-col">
         <ThemeProvider>
           <Navbar />
           {children}
