@@ -24,6 +24,7 @@ export function Hero() {
           mouseStrength={0.5}
           pageLoadAnimation
           brightness={0.6}
+          className="[mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]"
           />
           <div className="absolute text-center px-4 pointer-events-none container mx-auto space-y-4">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight">William Khine</h1>
