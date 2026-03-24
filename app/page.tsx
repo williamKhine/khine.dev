@@ -6,17 +6,10 @@ import { Contact } from "@/components/contact"
 
 export default function Page() {
   return (
-    <>
-      <Navbar />
-      <main>
-
-        <Hero />
-        <Projects />
-        <Contact />
-
-      </main>
-      <Footer />
-    </>
-
+    <main>
+      <Hero />
+      <Projects />
+      <Contact />
+    </main>
   )
 }

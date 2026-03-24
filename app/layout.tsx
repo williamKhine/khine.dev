@@ -6,9 +6,12 @@ import { cn } from "@/lib/utils";
 
 import type { Metadata } from 'next'
 
-const geistHeading = Geist({subsets:['latin'],variable:'--font-heading'});
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'})
+const geistHeading = Geist({ subsets: ['latin'], variable: '--font-heading' });
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
@@ -32,7 +35,11 @@ export default function RootLayout({
       className={cn("antialiased", fontMono.variable, "font-sans", inter.variable, geistHeading.variable)}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   )
