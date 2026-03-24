@@ -1,11 +1,11 @@
-"use client";
 import FaultyTerminal from './FaultyTerminal';
 import { Button } from './ui/button';
+import Link from 'next/link';
 
 export function Hero() {
   return (
     <section id="hero" className="">
-      <div className="relative w-full h-screen flex items-center justify-center">
+      <div className="h-[calc(100dvh-61px)] flex items-center justify-center">
         <FaultyTerminal
           scale={1.5}
           gridMul={[2, 1]}
@@ -24,17 +24,20 @@ export function Hero() {
           mouseStrength={0.5}
           pageLoadAnimation
           brightness={0.6}
-          className="[mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]"
-          />
-          <div className="absolute text-center px-4 pointer-events-none container mx-auto space-y-4">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight">William Khine</h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Full Stack Engineer in Toronto, Canada. All about building performant, scalable, and user-friendly web applications.
-            </p>
-            <Button className='bg-accent'>
-              Contact me
-            </Button>
-          </div>
+          className="[mask-image:linear-gradient(to_bottom,black_80%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,black_80%,transparent)]"
+        />
+        <div className="absolute text-center container mx-auto space-x-4 space-y-4">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">William Khine</h1>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            Full Stack Engineer in Toronto, Canada. All about building performant, scalable, and user-friendly web applications.
+          </p>
+          <Button variant={'secondary'} asChild>
+            <Link href="#projects">View my work</Link>
+          </Button>
+          <Button asChild>
+            <Link href="#contact">Get in touch</Link>
+          </Button>
+        </div>
       </div>
     </section>
   )

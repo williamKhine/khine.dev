@@ -1,3 +1,5 @@
+"use client"
+import { useState, useEffect } from "react"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -7,15 +9,39 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 import { Button } from "./ui/button"
+import Link from "next/link"
 
 export function Navbar() {
+  const [isVisible, setIsVisible] = useState(true)
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      // Hide navbar if scrolling down and scrolled past the hero section
+      if (currentScrollY > lastScrollY && currentScrollY > (window.innerHeight - 61)) {
+        setIsVisible(false)
+      } else {
+        setIsVisible(true)
+      }
+      lastScrollY = currentScrollY
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-1 border-b bg-background/60 backdrop-blur-md">
+    <header
+      className={`sticky top-0 z-50 w-full border-b bg-background/60 backdrop-blur-md transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"
+        }`}
+    >
       <div className="container mx-auto py-3">
         <NavigationMenu className="flex justify-between max-w-full">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuLink href="/" className="text-xl font-bold">khine.dev</NavigationMenuLink>
+              <Link href="/" className="text-xl">khine.dev</Link>
             </NavigationMenuItem>
           </NavigationMenuList>
 
@@ -33,9 +59,7 @@ export function Navbar() {
 
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Button>Resume</Button>
-              </NavigationMenuLink>
+              <Button>Resume</Button>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
