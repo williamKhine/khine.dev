@@ -1,25 +1,53 @@
 @import "tailwindcss";
 
+@custom-variant dark (@media (prefers-color-scheme: dark));
+
 @theme {
-  --color-background: #faf8f3;
-  --color-foreground: #24231f;
-  --color-primary: #262620;
-  --color-primary-foreground: #fffdf7;
-  --color-secondary: #f1e6db;
-  --color-secondary-foreground: #75422e;
-  --color-accent: #eee9df;
-  --color-accent-foreground: #24231f;
-  --color-border: #ded9ce;
-  --color-input: #ded9ce;
-  --color-ring: #9a4b30;
-  --color-destructive: #a32828;
+  --color-background: #fff;
+  --color-foreground: #171717;
+  --color-primary: #171717;
+  --color-primary-foreground: #fff;
+  --color-secondary: #f2f2f2;
+  --color-secondary-foreground: #454545;
+  --color-accent: #f5f5f5;
+  --color-accent-foreground: #171717;
+  --color-border: #e5e5e5;
+  --color-input: #e5e5e5;
+  --color-ring: #005fcc;
+  --color-destructive: #b42318;
   --font-sans: "Geist Variable", sans-serif;
-  --font-display: "Instrument Serif", Georgia, serif;
 }
 
 :root {
-  --ink-muted: #615e55;
-  --terracotta: #984e36;
+  color-scheme: light;
+  --ink-muted: #575757;
+  --art-surface: #fafafa;
+  --art-grid: #e5e5e5;
+  --art-emphasis: #222;
+  --chart-highlight: #005fcc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --color-background: #0a0a0a;
+    --color-foreground: #ededed;
+    --color-primary: #ededed;
+    --color-primary-foreground: #171717;
+    --color-secondary: #222;
+    --color-secondary-foreground: #d4d4d4;
+    --color-accent: #242424;
+    --color-accent-foreground: #ededed;
+    --color-border: #2e2e2e;
+    --color-input: #2e2e2e;
+    --color-ring: #70aaff;
+    --color-destructive: #f87171;
+    --ink-muted: #a1a1a1;
+    --art-surface: #111;
+    --art-grid: #2e2e2e;
+    --art-emphasis: #ccc;
+    --chart-highlight: #70aaff;
+  }
 }
 
 body {
@@ -62,7 +90,7 @@ body {
 
 .header-inner {
   justify-content: space-between;
-  min-height: 4.75rem;
+  min-height: 4rem;
   gap: 1rem;
 }
 
@@ -78,14 +106,14 @@ body {
 .monogram {
   display: grid;
   place-items: center;
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 0.5rem;
+  width: 1.95rem;
+  height: 1.95rem;
+  border-radius: 0.375rem;
   background: var(--color-primary);
   color: var(--color-primary-foreground);
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 400;
+  font-size: 0.8rem;
+  font-weight: 650;
+  letter-spacing: -0.06em;
 }
 
 .site-header nav {
@@ -101,42 +129,58 @@ body {
 }
 
 .site-header a:hover, .social-links a:hover, .site-footer a:hover {
-  color: var(--terracotta);
+  color: var(--color-foreground);
 }
 
 .hero {
-  padding-block: clamp(3.8rem, 9vw, 7rem) clamp(3.25rem, 8vw, 6rem);
+  position: relative;
+  isolation: isolate;
+  padding-block: clamp(3.5rem, 8vw, 6rem) clamp(3rem, 7vw, 5.5rem);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 42%;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--color-border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-border) 1px, transparent 1px);
+  background-size: 2rem 2rem;
+  background-position: right center;
+  mask-image: radial-gradient(ellipse at 85% 45%, #000 12%, transparent 72%);
 }
 
 .eyebrow, .project-category {
-  color: var(--terracotta);
-  font-size: 0.73rem;
-  font-weight: 650;
+  color: var(--ink-muted);
+  font-size: 0.75rem;
+  font-weight: 550;
+  font-family: ui-monospace, monospace;
+  letter-spacing: 0.035em;
   text-transform: uppercase;
-  letter-spacing: 0.13em;
 }
 
 h1, h2, h3 {
-  font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 650;
 }
 
 h1 {
-  font-size: clamp(3.5rem, 8.3vw, 7.25rem);
-  line-height: 0.94;
-  letter-spacing: -0.02em;
-  margin-block: 1.2rem 1.45rem;
+  font-size: clamp(2.375rem, 7vw, 5.25rem);
+  line-height: 1.02;
+  letter-spacing: -0.07em;
+  margin-block: 1rem 1.25rem;
 }
 
-h1 em {
-  color: var(--terracotta);
-  font-style: italic;
+.hero h1 span {
+  display: block;
+  color: var(--ink-muted);
 }
 
 h2 {
-  font-size: clamp(2.75rem, 5vw, 4.1rem);
-  line-height: 1;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.85rem, 3.8vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.055em;
 }
 
 .intro {
@@ -155,7 +199,7 @@ h2 {
 }
 
 .work, .contact {
-  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+  padding-block: clamp(2.25rem, 5vw, 3.5rem);
 }
 
 .section-heading {
@@ -178,39 +222,37 @@ h2 {
   flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--color-border);
-  border-radius: 0.85rem;
-  background: #fffdf8;
+  border-radius: 0.5rem;
+  background: var(--color-background);
 }
 
 .project-art {
-  --art-bg: #ebd8c7;
-  --art-grid: #cfb59f;
-  --art-panel: #f8ecdf;
-  --art-accent: #b87657;
+  --art-accent: var(--art-emphasis);
   display: grid;
   place-items: center;
   overflow: hidden;
   aspect-ratio: 2.5;
   isolation: isolate;
-  background-image: radial-gradient(var(--art-grid) 1px, transparent 1px);
-  background-size: 14px 14px;
-  background-color: var(--art-bg);
+  border-bottom: 1px solid var(--color-border);
+  background-image:
+    linear-gradient(to right, var(--art-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--art-grid) 1px, transparent 1px);
+  background-size: 1.25rem 1.25rem;
+  background-position: center;
+  background-color: var(--art-surface);
 }
 
 .project-art--chart {
-  --art-bg: #d8e1de;
-  --art-grid: #adbfbb;
-  --art-panel: #edf2ef;
-  --art-accent: #567e76;
+  --art-accent: var(--chart-highlight);
 }
 
 .art-window {
   width: 59%;
   max-width: 18rem;
   border: 1px solid var(--art-grid);
-  border-radius: 0.55rem;
-  box-shadow: 0 0.8rem 1.25rem #4436241a;
-  background: var(--art-panel);
+  border-radius: 0.375rem;
+  box-shadow: 0 4px 12px #0000000e;
+  background: var(--color-background);
 }
 
 .art-toolbar {
@@ -272,8 +314,9 @@ h2 {
 }
 
 .project-details h3 {
-  font-size: 2.8rem;
-  line-height: 1.1;
+  font-size: 1.65rem;
+  line-height: 1.2;
+  letter-spacing: -0.045em;
   margin-block: 0.2rem 0.35rem;
 }
 
@@ -296,7 +339,7 @@ h2 {
 .study-link {
   margin-top: auto;
   min-height: 2.75rem;
-  color: var(--terracotta);
+  color: var(--color-foreground);
   font-size: 0.9rem;
 }
 
@@ -365,10 +408,14 @@ h2 {
 
 .case-section h2 {
   margin-bottom: 0.75rem;
-  font-size: 2.35rem;
+  font-size: 1.4rem;
 }
 
 @media (max-width: 42rem) {
+  .hero::before {
+    display: none;
+  }
+
   .project-grid, .contact {
     grid-template-columns: 1fr;
   }

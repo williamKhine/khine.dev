@@ -12,7 +12,7 @@ export default function Home() {
       <section className="hero" aria-labelledby="intro">
         <FadeContent>
           <p className="eyebrow">Full-stack developer</p>
-          <h1 id="intro">Hi, I’m William.<br />I build <em>for the web.</em></h1>
+          <h1 id="intro">Hi, I’m William.<span>I build for the web.</span></h1>
           <p className="intro">
             I work across interfaces, APIs, and databases, with a focus on making complex workflows easier to use.
           </p>

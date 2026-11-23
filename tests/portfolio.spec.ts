@@ -49,3 +49,22 @@ test.describe("narrow viewport with reduced motion", () => {
     expect(await page.evaluate(() => document.getAnimations().length)).toBe(0);
   });
 });
+
+test("the portfolio follows live changes to the system color scheme", async ({ page }) => {
+  await page.emulateMedia({ colorScheme: "light" });
+  await page.goto("/");
+  const body = page.locator("body");
+  const title = page.getByRole("heading", { level: 1 });
+  await expect(body).toHaveCSS("background-color", "rgb(255, 255, 255)");
+  await expect(title).toHaveCSS("color", "rgb(23, 23, 23)");
+
+  await page.emulateMedia({ colorScheme: "dark" });
+  await expect(body).toHaveCSS("background-color", "rgb(10, 10, 10)");
+  await expect(title).toHaveCSS("color", "rgb(237, 237, 237)");
+  await page.getByRole("link", { name: "Read the Relay Case Study" }).click();
+  await expect(page).toHaveURL("/case-studies/relay");
+  await expect(body).toHaveCSS("background-color", "rgb(10, 10, 10)");
+
+  await page.emulateMedia({ colorScheme: "light" });
+  await expect(body).toHaveCSS("background-color", "rgb(255, 255, 255)");
+});
