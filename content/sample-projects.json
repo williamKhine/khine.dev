@@ -1,0 +1,24 @@
+[
+  {
+    "slug": "relay",
+    "title": "Relay",
+    "illustration": "inbox",
+    "category": "Workflow tooling",
+    "summary": "A shared inbox concept for teams that need to know who owns the next reply.",
+    "problem": "When support requests arrive in a shared inbox, two people can reply to the same request while another request goes unanswered. A team needs a way to see who owns each conversation and which requests still need attention.",
+    "contribution": "The proposed design connects a triage screen to an assignment endpoint and a relational data model. An agent can claim an unassigned request from the queue. The endpoint updates the row only while it is unassigned and returns the current owner if someone else claimed it first.",
+    "tradeoff": "A single owner makes the next action clear and keeps assignment atomic, but it makes shared ownership harder to represent. The design keeps one owner and records handoffs in an event history so other agents can follow a request without sharing responsibility for the reply.",
+    "outcome": "This is a fictional sample with no production results. A pilot could measure duplicate replies and the time between a request arriving and someone claiming it."
+  },
+  {
+    "slug": "ledger",
+    "title": "Ledger",
+    "illustration": "chart",
+    "category": "Data products",
+    "summary": "An expense review concept that traces a monthly total back to individual transactions.",
+    "problem": "A spreadsheet can show a monthly expense total, but when a transaction changes category it becomes difficult to explain why the total changed. Reviewers need to follow the number back to the individual entries.",
+    "contribution": "The proposed flow validates a CSV import, previews the rows for review, and commits the batch in one transaction. Each category total links to a filtered transaction list backed by the same query conditions, so the total and its breakdown use the same set of entries.",
+    "tradeoff": "Calculating totals on demand keeps corrections visible immediately and avoids reconciling a cache. The cost is more database work for every report. The design starts with indexed queries by account and date, with the option to introduce precomputed totals if report latency warrants it.",
+    "outcome": "This is a fictional sample with no production results. A pilot could measure how long it takes reviewers to reconcile a total and track report latency as transaction volume grows."
+  }
+]
