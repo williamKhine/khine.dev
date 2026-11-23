@@ -16,6 +16,7 @@
   --color-ring: #005fcc;
   --color-destructive: #b42318;
   --font-sans: "Geist Variable", sans-serif;
+  --font-display: "Instrument Serif", Georgia, serif;
 }
 
 :root {
@@ -162,25 +163,26 @@ body {
 }
 
 h1, h2, h3 {
-  font-weight: 650;
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
 }
 
 h1 {
-  font-size: clamp(2.375rem, 7vw, 5.25rem);
+  font-size: clamp(3rem, 7.5vw, 6rem);
   line-height: 1.02;
-  letter-spacing: -0.07em;
   margin-block: 1rem 1.25rem;
 }
 
 .hero h1 span {
   display: block;
+  font-style: italic;
   color: var(--ink-muted);
 }
 
 h2 {
-  font-size: clamp(1.85rem, 3.8vw, 2.75rem);
+  font-size: clamp(2.3rem, 4vw, 3.25rem);
   line-height: 1.1;
-  letter-spacing: -0.055em;
 }
 
 .intro {
@@ -314,9 +316,8 @@ h2 {
 }
 
 .project-details h3 {
-  font-size: 1.65rem;
+  font-size: 2rem;
   line-height: 1.2;
-  letter-spacing: -0.045em;
   margin-block: 0.2rem 0.35rem;
 }
 
@@ -408,7 +409,7 @@ h2 {
 
 .case-section h2 {
   margin-bottom: 0.75rem;
-  font-size: 1.4rem;
+  font-size: 1.85rem;
 }
 
 @media (max-width: 42rem) {
