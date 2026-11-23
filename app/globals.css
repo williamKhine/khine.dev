@@ -443,3 +443,13 @@ h2 {
     transition: none !important;
   }
 }
+
+.case-markdown { overflow-wrap: anywhere; }
+.case-markdown > * { margin-block: 1rem; }
+.case-markdown h2, .case-markdown h3 { font-family: var(--font-display); font-size: 1.75rem; }
+.case-markdown ul, .case-markdown ol { padding-inline-start: 1.5rem; }
+.case-markdown ul { list-style: disc; }
+.case-markdown ol { list-style: decimal; }
+.case-markdown a { text-decoration: underline; }
+.case-markdown pre { overflow-x: auto; padding: 1rem; border: 1px solid var(--border); }
+.case-markdown img { max-width: 100%; height: auto; }

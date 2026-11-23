@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { PortfolioLink, PortfolioResumeAction } from "@/components/portfolio-navigation";
 import type { ReactNode } from "react";
 import "@fontsource-variable/geist";
 import "@fontsource/instrument-serif/latin-400.css";
@@ -8,7 +8,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: { default: "William Khine · Full-stack developer", template: "%s · William Khine" },
-  description: "William Khine’s developer portfolio and sample Case Studies.",
+  description: "William Khine’s developer portfolio and Case Studies.",
+  referrer: "no-referrer",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -18,18 +19,19 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <a className="skip-link" href="#main">Skip to content</a>
         <header className="site-header">
           <div className="shell header-inner">
-            <Link className="wordmark" href="/">
+            <PortfolioLink className="wordmark" href="/">
               <span className="monogram" aria-hidden="true">wk.</span> William Khine
-            </Link>
+            </PortfolioLink>
             <nav aria-label="Main navigation">
-              <Link href="/#work">Case Studies</Link>
-              <Link href="/#contact">Contact</Link>
+              <PortfolioLink href="/#work">Case Studies</PortfolioLink>
+              <PortfolioLink href="/#contact">Contact</PortfolioLink>
             </nav>
           </div>
+          <PortfolioResumeAction />
         </header>
         {children}
         <footer className="site-footer">
-          <div className="shell"><Link href="/">William Khine</Link></div>
+          <div className="shell"><PortfolioLink href="/">William Khine</PortfolioLink></div>
         </footer>
       </body>
     </html>

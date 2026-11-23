@@ -6,6 +6,7 @@ import { ConvexReactClient, useConvexAuth, useQuery } from "convex/react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { api } from "@/convex/_generated/api";
+import { Projects } from "./projects";
 import { Reservations } from "./reservations";
 
 export function Dashboard({ convexUrl }: { convexUrl: string }) {
@@ -49,7 +50,7 @@ function DashboardAccess() {
         {isAuthenticated ? "Sign out" : "Sign in with GitHub"}
       </Button>
       {error && <p role="alert">{error}</p>}
-      {isAuthenticated && hasAccess && <Reservations />}
+      {isAuthenticated && hasAccess && <><Projects /><Reservations /></>}
     </div>
   );
 }
