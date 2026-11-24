@@ -444,6 +444,51 @@ h2 {
   }
 }
 
+/* Public portfolio */
+.shell { width: min(72rem, calc(100% - clamp(2.5rem, 10vw, 10rem))); }
+.site-header .wordmark { font-size: 1rem; font-weight: 650; letter-spacing: -.04em; }
+.monogram { font-size: 1rem; font-weight: 700; letter-spacing: -.12em; padding-right: .13em; }
+.header-tag { font: 12px ui-monospace, monospace; color: var(--ink-muted); letter-spacing: -.02em; }
+.site-header .nav-contact { border: 1px solid var(--color-border); border-radius: 6px; padding: .4rem .75rem; color: var(--color-foreground); }
+.nav-contact span { margin-left: .35rem; }
+.hero { display: grid; grid-template-columns: 1.18fr 1fr; align-items: center; gap: 2rem; padding-block: clamp(3.25rem,6vw,5.25rem); }
+.hero::before { display: none; }
+.eyebrow { display: inline-flex; align-items: center; gap: .6rem; font-size: .66rem; letter-spacing: .11em; }
+.eyebrow::before { content: ''; width: 7px; height: 7px; border-radius: 100%; background: #16855b; box-shadow: 0 0 0 3px #16855b16; }
+.hero h1, .work h2, .contact h2, .project-details h3, .case-study :is(h1,h2,h3) { font-family: var(--font-sans); font-weight: 600; letter-spacing: -.062em; }
+.hero h1 { font-size: clamp(3rem,5.3vw,4.9rem); line-height: 1.02; margin-block: 1.2rem; }
+.hero h1 span { font-style: normal; color: var(--ink-muted); }
+.intro { font-size: 1.03rem; line-height: 1.65; max-width: 31rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.65rem; }
+.stack-figure { position: relative; min-height: 290px; display: grid; place-items: center; isolation: isolate; }
+.stack-figure::before { content: ''; position: absolute; z-index: -1; inset: -8% -2%; background: radial-gradient(circle, var(--ink-muted) .75px, transparent .95px) center/14px 14px; opacity: .38; mask-image: radial-gradient(ellipse, black 22%, transparent 72%); }
+.stack-model { position: relative; width: 240px; height: 220px; }
+.plate { position: absolute; left: 38px; width: 165px; aspect-ratio: 1; border: 1.5px solid #353535; border-radius: 14px; transform: scaleY(.56) rotate(45deg); box-shadow: 2px 2px #555, 4px 4px #2b2b2b, 6px 6px #151515, 12px 12px 16px #0002; }
+.plate-base { top: 70px; background: repeating-linear-gradient(90deg,#303030 0 2px,#525252 3px 4px); }
+.plate-middle { top: 26px; background: repeating-linear-gradient(0deg,#b8b8b8 0 2px,#ddd 2px 4px); }
+.plate-top { top: -18px; display: grid; place-items: center; color: #343434; background: linear-gradient(135deg,#fafafa,#dcdcdc); box-shadow: inset 0 0 0 5px #eee,inset 0 0 0 6px #bbb,2px 2px #aaa,4px 4px #888,6px 6px #666,10px 10px 12px #0002; }
+.plate-top svg { transform: rotate(-90deg); }
+.figure-key, .section-label, .work-count { font: 10px/1.5 ui-monospace, monospace; letter-spacing: .1em; color: var(--ink-muted); }
+.figure-key { position: absolute; bottom: 0; font-size: 9px; } .figure-key b { padding: 0 .4rem; }
+.work,.contact { padding-block: clamp(2rem,3.4vw,3rem); }
+.section-label { display: block; margin-bottom: .7rem; }
+.work h2,.contact h2 { font-size: clamp(2rem,3vw,2.65rem); }
+.work-count { display: inline-block; vertical-align: middle; padding: .1rem .4rem; border: 1px solid var(--color-border); border-radius: 4px; margin-left: .75rem; }
+.section-heading p { font-size: .9rem; }
+.project-card { border-radius: .75rem; }
+.project-details h3 { font-size: 1.8rem; } .project-category { font-size: .62rem; letter-spacing: .09em; }
+.project-preview { position: relative; isolation: isolate; overflow: hidden; height: clamp(11rem,17vw,14rem); border-bottom: 1px solid var(--color-border); display: flex; align-items: center; padding: 6%; color: #f6f4ff; background-color: #302943; background-image: radial-gradient(ellipse at 75% 120%,#72608d,transparent 70%),radial-gradient(circle,#ffffff33 .75px,transparent .95px); background-size: auto,12px 12px; }
+.project-preview.ledger { color: #204a3f; background-color: #cce2d5; background-image: linear-gradient(135deg,#ecf5ec80,transparent),repeating-linear-gradient(0deg,transparent 0 17px,#406f5510 18px),repeating-linear-gradient(90deg,transparent 0 17px,#406f5510 18px); background-size: auto; }
+.product-brand { display: flex; align-items: center; gap: .35rem; font-size: clamp(1.4rem,2.6vw,2.25rem); font-weight: 600; letter-spacing: -.06em; }
+.product-brand svg { width: 1em; height: 1em; }
+.demo-pane { position: absolute; width: 60%; min-height: 86%; top: 18%; right: -3%; transform: rotate(-5deg); color: #e9e2f4; background: #262130; border: 1px solid #6c6077; box-shadow: 0 8px 26px #170d242e; border-radius: 7px; }
+.ledger .demo-pane { transform: rotate(-5deg); background: #fbfdf9; border-color: #9ebba8; color: #294638; }
+.demo-bar { height: 23px; border-bottom: 1px solid currentColor; border-color: color-mix(in srgb,currentColor 20%,transparent); display:flex; align-items:center; padding: 0 10px; gap: 3px; }
+.demo-bar i { width:4px; height:4px; border-radius:50%; background: currentColor; opacity:.5; }
+.demo-bar span { font: 8px monospace; opacity:.8; margin-left:8px; }
+.demo-content { padding: 14px; }.demo-content strong { display:flex; align-items:center; gap:6px; font-size:14px; margin-bottom:9px; }.demo-content small { font:8px monospace; letter-spacing:.1em; }.ledger strong { font-size:23px; gap:0; letter-spacing:-.05em; }.ledger strong span {opacity:.5;}
+.demo-row {display:flex; align-items:center; gap:7px; font-size:9px; padding:7px 0; border-top:1px solid #ffffff1f;}.demo-row i {width:6px;height:6px;border:1px solid #b6a4c7;border-radius:2px;}.demo-row span {margin-left:auto;font-family:monospace;}.demo-chart {display:flex; align-items:end; gap:4px;height:50px;}.demo-chart i {flex:1;background:#7baf90;border-radius:2px 2px 0 0;}.demo-chart i:nth-last-child(-n+3) {background:#396f52;}
+@media(max-width: 47rem){.hero{grid-template-columns:1fr;gap:0}.stack-figure{display:none}.hero h1{font-size:clamp(3rem,8.8vw,4rem)}.header-tag{display:none}.project-preview{height:12rem}.project-grid{grid-template-columns:1fr}.demo-pane{width:54%}.product-brand{font-size:1.75rem}}
 .case-markdown { overflow-wrap: anywhere; }
 .case-markdown > * { margin-block: 1rem; }
 .case-markdown h2, .case-markdown h3 { font-family: var(--font-display); font-size: 1.75rem; }
