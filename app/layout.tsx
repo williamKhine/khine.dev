@@ -20,11 +20,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <header className="site-header">
           <div className="shell header-inner">
             <PortfolioLink className="wordmark" href="/">
-              <span className="monogram" aria-hidden="true">wk.</span> William Khine
+              <span className="monogram" aria-hidden="true">wk</span> William Khine <span className="header-tag" aria-hidden="true">/ Portfolio</span>
             </PortfolioLink>
             <nav aria-label="Main navigation">
               <PortfolioLink href="/#work">Case Studies</PortfolioLink>
-              <PortfolioLink href="/#contact">Contact</PortfolioLink>
+              <PortfolioLink className="nav-contact" href="/#contact">Contact <span aria-hidden="true">↗</span></PortfolioLink>
             </nav>
           </div>
           <PortfolioResumeAction />
